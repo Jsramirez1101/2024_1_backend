@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('photo_details', function (Blueprint $table) {
             $table->id();
+            $table->string('gps_location');
+            $table->string('status')->default('active');
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }
