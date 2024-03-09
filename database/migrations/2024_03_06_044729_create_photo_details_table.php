@@ -8,13 +8,15 @@ return new class extends Migration
 {
     /**
      * Run the migrations.
+     *
+     * @return void
      */
-    public function up(): void
+    public function up()
     {
         Schema::create('photo_details', function (Blueprint $table) {
-            $table->id();
+            $table->id('id');
             $table->string('gps_location');
-            $table->string('status')->default('active');
+            $table->string('status')->default();
             $table->text('description')->nullable();
             $table->timestamps();
         });
@@ -22,9 +24,11 @@ return new class extends Migration
 
     /**
      * Reverse the migrations.
+     *
+     * @return void
      */
-    public function down(): void
+    public function down()
     {
-        Schema::dropIfExists('photo_details');
+        Schema::drop('photo_details');
     }
 };
